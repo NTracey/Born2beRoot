@@ -98,6 +98,36 @@ VMs can be dedicated to specific processes or tasks, providing a focused and opt
 
 In summary, Debian is easy to install, stable, has a wide range of software, has a helpful community, provides useful documentation, focuses on security, and offers customization options. These factors make it an excellent choice for beginners. 
 
+## APT (Advanced Packaging Tool)
+
+Apt is the default Linux command-line tool to manage the packages on a Debian-based system. It comes by default and doesn't offer a graphical interface to manage the tools that are installed and the ones that you can need in the future. 
+
+To install a package, you need to specify the name of the package just after the `apt install` command. The package manager reads the `/etc/apt/sources.list` file and the contents of the `/etc/apt/sources.list.d` folder to retrieve the ones that you need with all the dependencies.
+
+Apt command offers a lot of sub-commands that help you to manage your system so that the packages can be added, updated, removed, or fixed if a problem occurs. During those processes, it will automatically install, update or remove the necessary dependencies or the other packages which depend on the main package that is being operated
+
+## Aptitude
+
+Aptitude is also an advanced packaging tool that you can use over apt. It offers a command-line and text-based front-end for package management. It doesn't come by default, so you need to install it with the `apt` command.
+
+If you do not have Aptitude installed, you can install it by using the command below:
+
+`sudo apt install aptitude`
+
+Aptitude offers the possibility to manage your packages through command lines and also from a visual interface directly on your terminal. You can perform the main actions like installing, updating, and deleting your packages. it also offers sub-commands to manage your packages as apt but some people prefer the visual interface as it's easy to use.
+
+## The difference between aptitude, and apt
+
+Apt offers a command-line interface, while aptitude offers a visual interface. When facing a package conflict, `apt` will not fix the issue while `aptitude` will suggest a resolution that can do the job. Aptitude can interactively retrieve and displays the Debian changelog of all available official packages
+
+Apt requires the user to have a solid knowledge of Linux systems and package management as you are running everything in the command line. It can be difficult for a novice to handle.
+
+On the other hand, aptitude with its interface is more user-friendly as it offers a layer of abstraction regarding the different sub-commands to use for installation, upgrades, etc.
+
+## AppArmor
+
+AppArmor is a Mandatory Access Control framework. When enabled, AppArmor confines programs according to a set of rules that specify what files a given program can access. This proactive approach helps protect the system against both known and unknown vulnerabilities.
+
 ## LVM (Logical Volume Manager): 
 
 LVM, which stands for Logical Volume Management, is a technology that helps manage storage devices in a flexible way. It allows users to pool and abstract the physical layout of storage devices, providing advantages such as increased abstraction, flexibility, and control. 
@@ -122,7 +152,7 @@ Logical volumes are created within volume groups and function as partitions or f
 
 SSH is a secured network protocol to access remote computers in a network. SSH encrypts the communication between the client and the server, making it difficult for anyone to intercept or read the data being transmitted. It uses strong encryption and authentication methods to ensure privacy and security. 
 
-### HOW DOES IT WORK? 
+### How does it work? 
 
 SSH uses a client-server architecture for secured communication over the network by connecting a SSH client with the SSH server. SSH server by default listens on TCP port 22, however you can modify this for more security. 
 
