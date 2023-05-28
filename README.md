@@ -112,7 +112,9 @@ Aptitude is also an advanced packaging tool that you can use over apt. It offer
 
 If you do not have Aptitude installed, you can install it by using the command below:
 
-`sudo apt install aptitude`
+```
+sudo apt install aptitude
+```
 
 Aptitude offers the possibility to manage your packages through command lines and also from a visual interface directly on your terminal. You can perform the main actions like installing, updating, and deleting your packages. it also offers sub-commands to manage your packages as apt but some people prefer the visual interface as it's easy to use.
 
