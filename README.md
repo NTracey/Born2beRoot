@@ -1,3 +1,5 @@
+ # Born2beRoot
+
 ## How does a virtual machine work and what is its purpose? 
 
 A virtual machine (VM) is virtual environment that functions as a virtual computer system that is created on a physical machine (like a laptop, smart phone, or server). It has its own CPU, memory, network interfaces, and storage. 
@@ -6,11 +8,15 @@ A hypervisor, also known as a virtual machine monitor or VMM, is software that c
 
 ### The two types of hypervisors used for virtualization: 
 
-Type 1 hypervisor acts like a lightweight operating system and runs directly on the host’s hardware. 
+**Type 1 hypervisor:** acts like a lightweight operating system and runs directly on the host’s hardware. 
 
-Type 2 hypervisor runs as a software layer on an operating system, like other computer programs. 
+**Type 2 hypervisor:** runs as a software layer on an operating system, like other computer programs. 
 
 ### Several reasons to use VMs: 
+
+Because the software is separate from the physical host computer, users can run multiple OS instances on a single piece of hardware, saving a company time, management costs and physical space. 
+
+Furthermore, VMs can support legacy apps, reducing or eliminating the need and cost of migrating an older app to an updated or different operating system. 
 
 **Server consolidation:**
 
@@ -35,10 +41,6 @@ VMs are ideal for testing new applications or setting up production environments
 **Single-purpose tasks:**
 
 VMs can be dedicated to specific processes or tasks, providing a focused and optimized environment for those requirements. 
-
-In summary, because the software is separate from the physical host computer, users can run multiple OS instances on a single piece of hardware, saving a company time, management costs and physical space. 
-
-Furthermore, VMs can support legacy apps, reducing or eliminating the need and cost of migrating an older app to an updated or different operating system. 
 
 ## The basic differences between CentOS, Rocky and Debian? 
 
@@ -80,31 +82,19 @@ Furthermore, VMs can support legacy apps, reducing or eliminating the need and c
 
 ### Debian 
 
-**Easy Installation:**  
+**Easy Installation:** Debian has a simple and beginner-friendly installation process. 
 
-Debian has a simple and beginner-friendly installation process. 
+**Stability and Reliability:** Debian is known for being stable and dependable. 
 
-Stability and Reliability: Debian is known for being stable and dependable. 
+**Lots of Software:** Debian has a large collection of software available for easy installation. 
 
-**Lots of Software:**  
+**Supportive Community:** There is a helpful community of users and developers ready to assist beginners. 
 
-Debian has a large collection of software available for easy installation. 
+**Helpful Documentation:** Debian provides extensive documentation and tutorials for beginners. 
 
-**Supportive Community:**  
+**Focus on Security:** Debian prioritizes security and provides regular updates to keep your system safe. 
 
-There is a helpful community of users and developers ready to assist beginners. 
-
-**Helpful Documentation:**
-
-Debian provides extensive documentation and tutorials for beginners. 
-
-**Focus on Security:**
-
-Debian prioritizes security and provides regular updates to keep your system safe. 
-
-**Customization Options:** 
-
-Debian allows you to personalize your system's look and feel. 
+**Customization Options:** Debian allows you to personalize your system's look and feel. 
 
 In summary, Debian is easy to install, stable, has a wide range of software, has a helpful community, provides useful documentation, focuses on security, and offers customization options. These factors make it an excellent choice for beginners. 
 
@@ -146,12 +136,7 @@ With UFW, you can define rules to allow or deny specific connections based on pr
 
 UFW simplifies the process of configuring firewall rules by using a straightforward command-line interface. It abstracts the complexities of configuring iptables (the underlying firewall infrastructure) and provides a more intuitive way to manage firewall settings. 
 
-## SUDO 
+## SUDO (Superuser do)
 
 sudo is a Linux command that allows programs to be executed as a super user (aka root user) or another user. 
 
- 
-
- 
-
- # Born2beRoot
