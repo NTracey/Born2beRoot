@@ -14,10 +14,6 @@ A hypervisor, also known as a virtual machine monitor or VMM, is software that c
 
 ### Several reasons to use VMs: 
 
-Because the software is separate from the physical host computer, users can run multiple OS instances on a single piece of hardware, saving a company time, management costs and physical space. 
-
-Furthermore, VMs can support legacy apps, reducing or eliminating the need and cost of migrating an older app to an updated or different operating system. 
-
 - **Server consolidation:**
 
     Virtualizing servers allows for better utilization of physical resources by running multiple virtual servers on a single physical server, reducing the need for additional hardware. 
@@ -36,17 +32,21 @@ Furthermore, VMs can support legacy apps, reducing or eliminating the need and c
 
 - **Testing and development:**
 
- VMs are ideal for testing new applications or setting up production environments in a controlled and isolated manner. 
+    VMs are ideal for testing new applications or setting up production environments in a controlled and isolated manner. 
 
 - **Single-purpose tasks:**
 
     VMs can be dedicated to specific processes or tasks, providing a focused and optimized environment for those requirements. 
 
+Because the software is separate from the physical host computer, users can run multiple OS instances on a single piece of hardware, saving a company time, management costs and physical space. 
+
+Furthermore, VMs can support legacy apps, reducing or eliminating the need and cost of migrating an older app to an updated or different operating system. 
+
 ## The basic differences between CentOS, Rocky and Debian? 
 
-### Origins:  
+- ### Origins:  
 
-- **CentOS:** CentOS is a type of operating system that was created to be a free alternative to a commercial operating system called Red Hat Enterprise Linux (RHEL). 
+-   **CentOS:** CentOS is a type of operating system that was created to be a free alternative to a commercial operating system called Red Hat Enterprise Linux (RHEL). 
 
 - **Rocky Linux:** Rocky Linux is another free operating system that was made to replace CentOS after it changed its direction. 
 
