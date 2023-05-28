@@ -44,7 +44,7 @@ Furthermore, VMs can support legacy apps, reducing or eliminating the need and c
 
 ## The basic differences between CentOS, Rocky and Debian? 
 
-- ### Origins:  
+### Origins:  
 
 -   **CentOS:** CentOS is a type of operating system that was created to be a free alternative to a commercial operating system called Red Hat Enterprise Linux (RHEL). 
 
