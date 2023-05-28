@@ -170,5 +170,5 @@ UFW simplifies the process of configuring firewall rules by using a straightforw
 
 ## SUDO (Superuser do)
 
-sudo is a Linux command that allows programs to be executed as a super user (aka root user) or another user. 
+Sudo is a Linux command that allows programs to be executed as a super user (aka root user) or another user. 
 
