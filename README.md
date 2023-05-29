@@ -284,11 +284,9 @@ Defaults passwd_tries=3: Sets the number of password attempts a user is allowed 
 Defaults logfile="/var/log/sudo/sudo.log": Specifies the path to the sudo log file where sudo commands and related information are logged.
 Defaults log_input, log_output: Enables logging of user input and output when executing sudo commands.
 Defaults requiretty: Requires a TTY (terminal) to be present when executing sudo commands, which helps prevent remote execution of sudo commands.
-:::
 
-> root ALL=(ALL :ALL) ALL: Grants the root user all privileges (on all hosts and terminals).
+root ALL=(ALL :ALL) ALL: Grants the root user all privileges (on all hosts and terminals).
 
-::: {.callout-note}
 trngo ALL=(ALL) ALL: Grants user "trngo" all privileges (on all hosts and terminals).
 %sudo ALL=(ALL :ALL) ALL: Grants all members of the "sudo" group all privileges (on all hosts and terminals).
 trngo ALL=(ALL) NOPASSWD: /user/local/bin/monitoring.sh: Allows user "trngo" to execute the command /user/local/bin/monitoring.sh without entering a password.
