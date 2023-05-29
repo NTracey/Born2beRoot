@@ -275,6 +275,7 @@ Open Sudoers file
 ```
 sudo visudo
 ```
+
 ::: {.callout-note}
 Defaults env_reset: Resets the environment to a default state when executing commands with sudo.
 Defaults mail_badpass: Sends an email notification to the user when they enter an incorrect password.
