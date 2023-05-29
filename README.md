@@ -347,7 +347,10 @@ The purpose of Cron is to enable users to automate repetitive or scheduled tasks
 Cron relies on a configuration file called the "crontab" (short for "Cron table"), where users define the schedule and commands for their Cron jobs. Each user typically has their own crontab file, which they can modify using the crontab command.
 Cron provides a flexible and reliable way to schedule and manage recurring tasks, making it a valuable tool for system administrators, developers, and users who require automated task execution.
 
-sudo crontab -u root -e (change the 10 value to 1)
+```
+sudo crontab -u root -e
+```
+(change the 10 value to 1)
 Stop script or start running without modifying the script itself. To check this, sudo reboot to restart the VM.
 ```
 sudo /etc/init.d/cron stop
