@@ -185,19 +185,27 @@ A password policy defines the password strength rules that are used to determine
 ### How do you implement the password policy?
 The process to install and configure the Password Quality Checking Library on a Linux system using the libpam-pwquality package, and then adjust the password policy settings.
 ### 1. Install Password Quality Checking Library
-`sudo apt-get install libpam-pwquality`
+```
+sudo apt-get install libpam-pwquality
+```
 
 ### 2. Edit the /etc/pam.d/common-password file using the Vim editor:
-`sudo vim /etc/pam.d/common-password`
+```
+sudo vim /etc/pam.d/common-password
+```
 
 ### 3. Locate the line containing password requisite pam_pwquality.so within the file.
 
 ### 4. Append the following parameters to the end of the line:
-`minlen=10 ucredit=-1 dcredit=-1 maxrepeat=3 reject_username difok=7 enforce_for_root`
+```
+minlen=10 ucredit=-1 dcredit=-1 maxrepeat=3 reject_username difok=7 enforce_for_root
+```
 After adding the parameters, the line should look like this:
 
 ### 5. After adding the parameters, the line should look like this:
-`password	requisite	pam_pwquality.so	retry=3 minlen=10 ucredit=-1 dcredit=-1 maxrepeat=3 reject_username difok=7 enforce_for_root`
+```
+password	requisite	pam_pwquality.so	retry=3 minlen=10 ucredit=-1 dcredit=-1 maxrepeat=3 reject_username difok=7 enforce_for_root
+```
 
 ::: {.callout-note}
 password: This indicates that the configuration applies to password authentication.
@@ -214,6 +222,7 @@ reject_username: Prevents the use of the username as part of the password.
 difok=7: Specifies that at least seven characters in the new password should be different from the old password.
 enforce_for_root: Applies the password quality checks even for the root user.
 :::
+
 By adding these parameters to the line, you are configuring the pam_pwquality module to enforce stricter password quality requirements, such as minimum length, inclusion of uppercase letters and digits, restrictions on repeating characters, and prevention of using the username in the password. These settings enhance the security of the system by promoting stronger passwords.
 
 ### 6. Save and exit the Vim editor. In Vim, you can typically do this by pressing the Esc key, then typing :wq and pressing Enter.
@@ -222,15 +231,19 @@ By adding these parameters to the line, you are configuring the pam_pwquality mo
 
 ### 8. sudo vim /etc/login.defs
 Locate the lines that specify the password policy settings:
-`PASS_MAX_DAYS 9999
+```
+PASS_MAX_DAYS 9999
 PASS_MIN_DAYS 0
-PASS_WARN_AGE 7`
+PASS_WARN_AGE 7
+```
 
 ### 8. Modify those lines to reflect the desired password policy:
 
-`PASS_MAX_DAYS 30
+```
+PASS_MAX_DAYS 30
 PASS_MIN_DAYS 2
-PASS_WARN_AGE 7`
+PASS_WARN_AGE 7
+```
 
 > PASS_MAX_DAYS 30: This parameter sets the maximum number of days a password can be used before it expires. In this case, the value is set to 30 days. After 30 days, users will be required to change their passwords.
 
@@ -243,7 +256,9 @@ By adjusting these password policy settings, you are defining the expiration per
 ### 9. Save and exit the Vim editor.
 
 ### 10. Reboot the system for the changes to take effect:
-`sudo reboot`
+```
+sudo reboot
+```
 
 ### Advantages:
 The main benefit of password complexity rules is that they enforce the use of unique passwords that are harder to crack. 
