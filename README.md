@@ -252,14 +252,91 @@ The main benefit of password complexity rules is that they enforce the use of un
 With in increase of complexity requirements it becomes harder to remember the password potentially causing people to store their passwords using an insecure method such as writing it down or storing it on their phone or computer. Many organizations have found that as complexity requirements increase, users will have worse password hygiene. 
 
 What is the sudoers file, & its purpose?
+The sudoers file is a configuration file in Unix-like operating systems that determines which users or groups are allowed to run specific commands with administrative privileges using the sudo command. It controls access to the system and provides a way to delegate limited root access to non-root users.
 
+The purpose of the sudoers file is to define a policy that specifies who can perform privileged operations and what commands they are allowed to execute. It helps enhance security by allowing system administrators to grant certain privileges to trusted users while limiting access to critical system functions.
 
-What is the monitoring.sh script?
+Open Sudoers file
+```
+sudo visudo
+```
+::: {.callout-note}
+Defaults env_reset: Resets the environment to a default state when executing commands with sudo.
+Defaults mail_badpass: Sends an email notification to the user when they enter an incorrect password.
+Defaults secure_path="/usr/local/sbin:/usr/local/bin:/usr/bin:/sbin:/bin": Sets the secure path, which is the list of directories that sudo considers safe for executing commands.
+Defaults badpass_message="Password is wrong, please try again!": Specifies a custom error message to be displayed when a user enters an incorrect password.
+Defaults passwd_tries=3: Sets the number of password attempts a user is allowed before the authentication fails.
+Defaults logfile="/var/log/sudo/sudo.log": Specifies the path to the sudo log file where sudo commands and related information are logged.
+Defaults log_input, log_output: Enables logging of user input and output when executing sudo commands.
+Defaults requiretty: Requires a TTY (terminal) to be present when executing sudo commands, which helps prevent remote execution of sudo commands.
+:::
 
+> root ALL=(ALL :ALL) ALL: Grants the root user all privileges (on all hosts and terminals).
 
-What is the wall command?
+::: {.callout-note}
+trngo ALL=(ALL) ALL: Grants user "trngo" all privileges (on all hosts and terminals).
+%sudo ALL=(ALL :ALL) ALL: Grants all members of the "sudo" group all privileges (on all hosts and terminals).
+trngo ALL=(ALL) NOPASSWD: /user/local/bin/monitoring.sh: Allows user "trngo" to execute the command /user/local/bin/monitoring.sh without entering a password.
+:::
 
+## What is the monitoring.sh script?
+Go to where the monitoring script file is in
+```
+cd /usr/local/bin
+vim monitoring.sh
+```
 
-What is Cron & its purpose?
+The monitoring.sh script is a bash script that collects various system information and broadcasts it to all logged-in users using the wall command. Here's a simplified explanation of what the script does:
+- It uses various command-line utilities to gather system information such as architecture, CPU details (both physical and virtual), memory usage, disk usage, CPU load, last boot time, LVM usage, TCP connections, user login count, network information (IP address and MAC address), and the number of sudo commands executed.
+- After collecting the system information, it formats it into a message using the wall command. The message includes the gathered information labeled with respective headings.
+- The wall command broadcasts the message to all logged-in users, displaying the system information on their terminals.
+
+In summary, the monitoring.sh script automates the process of collecting system information and notifying users about the current system status.
+
+## What is the wall command?
+The wall command is a Unix command-line utility that stands for "write all." It allows you to send a message to all logged-in users on a Unix-like system. The message you provide as an argument to the wall command will be displayed on the terminals of all currently logged-in users.
+The wall command is often used by system administrators to broadcast important messages, announcements, or notifications to all users on a system. It is particularly useful for conveying urgent information or system-wide notifications that require immediate attention from users.
+
+The wall command is included in your monitoring.sh script. Towards the end of the script, there is a line that uses the wall command to broadcast the system information message to all logged-in users. Here's the relevant part of the script:
+
+```
+wall "	#Architecture: $arc
+          #CPU physical: $pcpu
+          #vCPU: $vcpu
+          #Memory Usage: $uram/${fram}MB ($pram%)
+          #Disk Usage: $udisk/${fdisk}Gb ($pdisk%)
+          #CPU load: $cpul
+          #Last boot: $lb
+          #LVM use: $lvmu
+          #Connections TCP: $ctcp ESTABLISHED
+          #User log: $ulog
+          #Network: IP $ip ($mac)
+          #Sudo: $cmds cmd"
+```
+
+In this section, the wall command is used to send the formatted system information message as a broadcast to all logged-in users. The message includes various system details such as architecture, CPU information, memory usage, disk usage, CPU load, last boot time, LVM usage, TCP connections, user login count, network information, and the number of sudo commands executed.
+
+When the script is executed, this line with the wall command will display the system information on the terminals of all currently logged-in users.
+
+## What is Cron & its purpose?
+Cron is a time-based job scheduler in Unix-like operating systems. It is a built-in utility that allows users to schedule and automate the execution of tasks or commands at specific intervals, dates, or times. The tasks scheduled with Cron are often referred to as "Cron jobs."
+
+The purpose of Cron is to enable users to automate repetitive or scheduled tasks, system maintenance, data backups, and various other activities. It provides a convenient way to execute commands or scripts without manual intervention. Cron is commonly used for:
+
+- Regular Maintenance: Cron allows you to schedule tasks like system updates, log rotation, and cleanup operations to keep the system running smoothly.
+- Data Backups: Cron can be used to schedule regular backups of files or databases to ensure data integrity and disaster recovery.
+- System Monitoring: You can use Cron to run monitoring scripts or commands that check system health, log errors, or collect performance metrics at specified intervals.
+- Batch Processing: Cron enables the execution of batch jobs or processes that need to run at specific times or on specific dates, such as generating reports or performing data processing tasks.
+- Automation: By leveraging Cron, repetitive tasks can be automated, reducing the need for manual execution and saving time and effort.
+
+Cron relies on a configuration file called the "crontab" (short for "Cron table"), where users define the schedule and commands for their Cron jobs. Each user typically has their own crontab file, which they can modify using the crontab command.
+Cron provides a flexible and reliable way to schedule and manage recurring tasks, making it a valuable tool for system administrators, developers, and users who require automated task execution.
+
+sudo crontab -u root -e (change the 10 value to 1)
+Stop script or start running without modifying the script itself. To check this, sudo reboot to restart the VM.
+```
+sudo /etc/init.d/cron stop
+sudo /etc/init.d/cron start
+```
 
 
