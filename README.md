@@ -277,6 +277,7 @@ sudo visudo
 ```
 
 ::: {.callout-note}
+
 Defaults env_reset: Resets the environment to a default state when executing commands with sudo.
 Defaults mail_badpass: Sends an email notification to the user when they enter an incorrect password.
 Defaults secure_path="/usr/local/sbin:/usr/local/bin:/usr/bin:/sbin:/bin": Sets the secure path, which is the list of directories that sudo considers safe for executing commands.
