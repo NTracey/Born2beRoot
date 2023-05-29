@@ -172,3 +172,94 @@ UFW simplifies the process of configuring firewall rules by using a straightforw
 
 Sudo is a Linux command that allows programs to be executed as a super user (aka root user) or another user. 
 
+## Password policy
+A password policy defines the password strength rules that are used to determine whether a new password is valid.
+
+### You can specify the following standards and other rules for passwords:
+- Minimum and maximum length
+- Character restrictions
+- Frequency of password reuse
+- Disallowed user names or user IDs
+- Specify a minimum password age
+
+### How do you implement the password policy?
+The process to install and configure the Password Quality Checking Library on a Linux system using the libpam-pwquality package, and then adjust the password policy settings.
+### 1. Install Password Quality Checking Library
+`sudo apt-get install libpam-pwquality`
+
+### 2. Edit the /etc/pam.d/common-password file using the Vim editor:
+`sudo vim /etc/pam.d/common-password`
+
+### 3. Locate the line containing password requisite pam_pwquality.so within the file.
+
+### 4. Append the following parameters to the end of the line:
+`minlen=10 ucredit=-1 dcredit=-1 maxrepeat=3 reject_username difok=7 enforce_for_root`
+After adding the parameters, the line should look like this:
+
+### 5. After adding the parameters, the line should look like this:
+`password	requisite	pam_pwquality.so	retry=3 minlen=10 ucredit=-1 dcredit=-1 maxrepeat=3 reject_username difok=7 enforce_for_root`
+
+::: {.callout-note}
+password: This indicates that the configuration applies to password authentication.
+requisite: Specifies that the module is required for password authentication to be successful.
+pam_pwquality.so: Refers to the pam_pwquality module responsible for checking password quality.
+The additional parameters are:
+
+retry=3: Specifies that the user will have three attempts to enter a valid password before failing.
+minlen=10: Sets the minimum password length to 10 characters.
+ucredit=-1: Requires at least one uppercase letter in the password.
+dcredit=-1: Requires at least one digit (number) in the password.
+maxrepeat=3: Limits the number of consecutive repeated characters in the password to three.
+reject_username: Prevents the use of the username as part of the password.
+difok=7: Specifies that at least seven characters in the new password should be different from the old password.
+enforce_for_root: Applies the password quality checks even for the root user.
+:::
+By adding these parameters to the line, you are configuring the pam_pwquality module to enforce stricter password quality requirements, such as minimum length, inclusion of uppercase letters and digits, restrictions on repeating characters, and prevention of using the username in the password. These settings enhance the security of the system by promoting stronger passwords.
+
+### 6. Save and exit the Vim editor. In Vim, you can typically do this by pressing the Esc key, then typing :wq and pressing Enter.
+
+### 7. Open the /etc/login.defs file for configuration:
+
+### 8. sudo vim /etc/login.defs
+Locate the lines that specify the password policy settings:
+`PASS_MAX_DAYS 9999
+PASS_MIN_DAYS 0
+PASS_WARN_AGE 7`
+
+### 8. Modify those lines to reflect the desired password policy:
+
+`PASS_MAX_DAYS 30
+PASS_MIN_DAYS 2
+PASS_WARN_AGE 7`
+
+> PASS_MAX_DAYS 30: This parameter sets the maximum number of days a password can be used before it expires. In this case, the value is set to 30 days. After 30 days, users will be required to change their passwords.
+
+> PASS_MIN_DAYS 2: This parameter sets the minimum number of days a user must wait before changing their password again. With a value of 2, users must wait at least two days before changing their password. This setting helps prevent users from frequently changing their passwords to bypass password history restrictions.
+
+> PASS_WARN_AGE 7: This parameter sets the number of days before a password expires that users will start receiving warning messages. In this case, users will receive a warning message seven days before their password expires, reminding them to change it.
+
+By adjusting these password policy settings, you are defining the expiration period, the minimum waiting period before changing passwords, and the warning period for users. These settings contribute to enforcing a stronger security posture by ensuring that passwords are regularly updated and users are notified in advance of password expiration.
+
+### 9. Save and exit the Vim editor.
+
+### 10. Reboot the system for the changes to take effect:
+`sudo reboot`
+
+### Advantages:
+The main benefit of password complexity rules is that they enforce the use of unique passwords that are harder to crack. 
+
+### Disadvantages:
+With in increase of complexity requirements it becomes harder to remember the password potentially causing people to store their passwords using an insecure method such as writing it down or storing it on their phone or computer. Many organizations have found that as complexity requirements increase, users will have worse password hygiene. 
+
+What is the sudoers file, & its purpose?
+
+
+What is the monitoring.sh script?
+
+
+What is the wall command?
+
+
+What is Cron & its purpose?
+
+
