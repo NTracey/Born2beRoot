@@ -6,9 +6,9 @@
 3. [My choice of operating system and why?](#debian)
 4. [The difference between aptitude, and apt](#aptitude_apt)
 5. [AppArmor](#apparmor)
-6. [LVM (Logical Volume Manager)](#LVM)
-7. [SSH (Secure Shell or Secure Socket Shell](#SSH)
-8. [UFW (Uncomplicated Firewall)](#UFW)
+6. [LVM (Logical Volume Manager)](#lvm)
+7. [SSH (Secure Shell or Secure Socket Shell](#ssh)
+8. [UFW (Uncomplicated Firewall)](#ufw)
 9. [SUDO (Superuser do)](#sudo)
 10. [Password policy](#password)
 11. [What is the sudoers file, & its purpose?](#sudoers_file)
@@ -146,7 +146,7 @@ On the other hand, aptitude with its interface is more user-friendly as it offer
 
 AppArmor is a Mandatory Access Control framework. When enabled, AppArmor confines programs according to a set of rules that specify what files a given program can access. This proactive approach helps protect the system against both known and unknown vulnerabilities.
 
-## LVM (Logical Volume Manager) <a name="LVM"></a>
+## LVM (Logical Volume Manager) <a name="lvm"></a>
 
 LVM, which stands for Logical Volume Management, is a technology that helps manage storage devices in a flexible way. It allows users to pool and abstract the physical layout of storage devices, providing advantages such as increased abstraction, flexibility, and control. 
 
@@ -166,7 +166,7 @@ LVM, which stands for Logical Volume Management, is a technology that helps mana
 
     Logical volumes are created within volume groups and function as partitions or filesystems. They provide much more flexibility compared to traditional partitions on a physical disk. Logical volumes are the main components that users and applications interact with. 
 
-## SSH (Secure Shell or Secure Socket Shell) <a name="SSH"></a>
+## SSH (Secure Shell or Secure Socket Shell) <a name="ssh"></a>
 
 SSH is a secured network protocol to access remote computers in a network. SSH encrypts the communication between the client and the server, making it difficult for anyone to intercept or read the data being transmitted. It uses strong encryption and authentication methods to ensure privacy and security. 
 
@@ -176,7 +176,7 @@ SSH uses a client-server architecture for secured communication over the network
 
 It uses a public-key cryptography technique to authenticate between client and server. In addition, the protocol uses strong symmetric encryption & hashing algorithms for the exchange of messages between client and server to ensure privacy and data integrity. 
 
-## UFW (Uncomplicated Firewall) <a name="UFW"></a>
+## UFW (Uncomplicated Firewall) <a name="ufw"></a>
 
 UFW (Uncomplicated Firewall) is a user-friendly front-end tool for managing firewall rules on Linux systems. It provides a simplified interface for configuring and managing firewall settings, making it easier for users to control incoming and outgoing network traffic. 
 
