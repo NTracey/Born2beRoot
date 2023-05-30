@@ -321,11 +321,11 @@ The monitoring.sh script is a bash script that collects various system informati
 
 In summary, the monitoring.sh script automates the process of collecting system information and notifying users about the current system status.
 
-## What is the wall command?
+## Wall command (write all)
 The wall command is a Unix command-line utility that stands for "write all." It allows you to send a message to all logged-in users on a Unix-like system. The message you provide as an argument to the wall command will be displayed on the terminals of all currently logged-in users.
 The wall command is often used by system administrators to broadcast important messages, announcements, or notifications to all users on a system. It is particularly useful for conveying urgent information or system-wide notifications that require immediate attention from users.
 
-The wall command is included in your monitoring.sh script. Towards the end of the script, there is a line that uses the wall command to broadcast the system information message to all logged-in users. Here's the relevant part of the script:
+The wall command is included in the monitoring.sh script. Towards the end of the script, there is a line that uses the wall command to broadcast the system information message to all logged-in users. Here's the relevant part of the script:
 
 ```
 wall "	#Architecture: $arc
