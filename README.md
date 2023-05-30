@@ -183,26 +183,7 @@ A password policy defines the password strength rules that are used to determine
 - Specify a minimum password age
 
 ### How do you implement the password policy?
-The process to install and configure the Password Quality Checking Library on a Linux system using the libpam-pwquality package, and then adjust the password policy settings.
-### 1. Install Password Quality Checking Library
-```
-sudo apt-get install libpam-pwquality
-```
-
-### 2. Edit the /etc/pam.d/common-password file using the Vim editor:
-```
-sudo vim /etc/pam.d/common-password
-```
-
-### 3. Locate the line containing password requisite pam_pwquality.so within the file.
-
-### 4. Append the following parameters to the end of the line:
-```
-minlen=10 ucredit=-1 dcredit=-1 maxrepeat=3 reject_username difok=7 enforce_for_root
-```
-After adding the parameters, the line should look like this:
-
-### 5. After adding the parameters, the line should look like this:
+The password policy was implemented by installing Password Quality Checking Library and adding additional password quality requirements such as minimum length, inclusion of uppercase letters and digits, restrictions on repeating characters, and prevention of using the username in the password to `pam_pwquality` module in the `/etc/pam.d/common-password` file where it checks for password quality.
 ```
 password	requisite	pam_pwquality.so	retry=3 minlen=10 ucredit=-1 dcredit=-1 maxrepeat=3 reject_username difok=7 enforce_for_root
 ```
@@ -230,42 +211,18 @@ The additional parameters are:
 > 
 > `enforce_for_root`: Applies the password quality checks even for the root user.
 
-By adding these parameters to the line, you are configuring the pam_pwquality module to enforce stricter password quality requirements, such as minimum length, inclusion of uppercase letters and digits, restrictions on repeating characters, and prevention of using the username in the password. These settings enhance the security of the system by promoting stronger passwords.
-
-### 6. Save and exit the Vim editor. In Vim, you can typically do this by pressing the Esc key, then typing :wq and pressing Enter.
-
-### 7. Open the /etc/login.defs file for configuration:
-
-### 8. sudo vim /etc/login.defs
-Locate the lines that specify the password policy settings:
-```
-PASS_MAX_DAYS 9999
-PASS_MIN_DAYS 0
-PASS_WARN_AGE 7
-```
-
-### 8. Modify those lines to reflect the desired password policy:
-
+The password quality settings is also adjusted in the `/etc/login.defs` file by redefining the expiration period, the minimum waiting period before changing passwords, and the warning period for users. These settings contribute to enforcing a stronger security posture by ensuring that passwords are regularly updated and users are notified in advance of password expiration.
 ```
 PASS_MAX_DAYS 30
 PASS_MIN_DAYS 2
 PASS_WARN_AGE 7
 ```
 
-> `PASS_MAX_DAYS 30`: This parameter sets the maximum number of days a password can be used before it expires. In this case, the value is set to 30 days. After 30 days, users will be required to change their passwords.
+> `PASS_MAX_DAYS 30`: Maximum of 30 days before the password expires. After 30 days, users will be required to change their passwords.
 
-> `PASS_MIN_DAYS 2`: This parameter sets the minimum number of days a user must wait before changing their password again. With a value of 2, users must wait at least two days before changing their password. This setting helps prevent users from frequently changing their passwords to bypass password history restrictions.
+> `PASS_MIN_DAYS 2`: Minimum number of 2 days a user must wait before changing their password again. This setting helps prevent users from frequently changing their passwords to bypass password history restrictions.
 
-> `PASS_WARN_AGE 7`: This parameter sets the number of days before a password expires that users will start receiving warning messages. In this case, users will receive a warning message seven days before their password expires, reminding them to change it.
-
-By adjusting these password policy settings, you are defining the expiration period, the minimum waiting period before changing passwords, and the warning period for users. These settings contribute to enforcing a stronger security posture by ensuring that passwords are regularly updated and users are notified in advance of password expiration.
-
-### 9. Save and exit the Vim editor.
-
-### 10. Reboot the system for the changes to take effect:
-```
-sudo reboot
-```
+> `PASS_WARN_AGE 7`: Users will receive a warning message 7 days before their password expires, reminding them to change it.
 
 ### Advantages:
 The main benefit of password complexity rules is that they enforce the use of unique passwords that are harder to crack. 
@@ -323,6 +280,7 @@ In summary, the monitoring.sh script automates the process of collecting system 
 
 ## Wall command (write all)
 The wall command is a Unix command-line utility that stands for "write all." It allows you to send a message to all logged-in users on a Unix-like system. The message you provide as an argument to the wall command will be displayed on the terminals of all currently logged-in users.
+
 The wall command is often used by system administrators to broadcast important messages, announcements, or notifications to all users on a system. It is particularly useful for conveying urgent information or system-wide notifications that require immediate attention from users.
 
 In this section, the wall command in monitoring.sh script is used to send the formatted system information message as a broadcast to all logged-in users. The message includes various system details such as architecture, CPU information, memory usage, disk usage, CPU load, last boot time, LVM usage, TCP connections, user login count, network information, and the number of sudo commands executed.
