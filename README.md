@@ -1,6 +1,22 @@
- # Born2beRoot
+# Born2beRoot
 
-## How does a virtual machine work and what is its purpose? 
+## Table of Contents
+1. [How does a virtual machine work and what is its purpose?](#virtual_machine)
+2. [The basic differences between CentOS, Rocky and Debian?](#centos_rocky_debian)
+3. [My choice of operating system and why?](#debian)
+4. [The difference between aptitude, and apt](#aptitude_apt)
+5. [AppArmor](#apparmor)
+6. [LVM (Logical Volume Manager](#LVM)
+7. [SSH (Secure Shell or Secure Socket Shell](SSH)
+8. [UFW (Uncomplicated Firewall)](UFW)
+9. [SUDO (Superuser do)](sudo)
+10. [Password policy](password)
+11. [What is the sudoers file, & its purpose?](sudoers_file)
+12. [What is the monitoring.sh script?](monitoring.sh)
+13. [Wall command (write all](wall)
+14. [Cron](cron)
+
+## How does a virtual machine work and what is its purpose? <a name="virtual_machine"></a>
 
 A virtual machine (VM) is virtual environment that functions as a virtual computer system that is created on a physical machine (like a laptop, smart phone, or server). It has its own CPU, memory, network interfaces, and storage. 
 
@@ -42,7 +58,7 @@ Because the software is separate from the physical host computer, users can run 
 
 Furthermore, VMs can support legacy apps, reducing or eliminating the need and cost of migrating an older app to an updated or different operating system. 
 
-## The basic differences between CentOS, Rocky and Debian? 
+## The basic differences between CentOS, Rocky and Debian? <a name="centos_rocky_debian"></a>
 
 ### Origins:  
 
@@ -78,7 +94,7 @@ Furthermore, VMs can support legacy apps, reducing or eliminating the need and c
 
 - **Debian:** Debian has a wide range of software available, both for servers and personal computers. It is known for its commitment to free and open-source software. 
 
-## My choice of operating system and why? 
+## My choice of operating system and why? <a name="debian"></a>
 
 ### Debian 
 
@@ -118,7 +134,7 @@ sudo apt install aptitude
 
 Aptitude offers the possibility to manage your packages through command lines and also from a visual interface directly on your terminal. You can perform the main actions like installing, updating, and deleting your packages. it also offers sub-commands to manage your packages as apt but some people prefer the visual interface as it's easy to use.
 
-## The difference between aptitude, and apt
+## The difference between aptitude, and apt <a name="aptitude_apt"></a>
 
 Apt offers a command-line interface, while aptitude offers a visual interface. When facing a package conflict, `apt` will not fix the issue while `aptitude` will suggest a resolution that can do the job. Aptitude can interactively retrieve and displays the Debian changelog of all available official packages
 
@@ -126,11 +142,11 @@ Apt requires the user to have a solid knowledge of Linux systems and package man
 
 On the other hand, aptitude with its interface is more user-friendly as it offers a layer of abstraction regarding the different sub-commands to use for installation, upgrades, etc.
 
-## AppArmor
+## AppArmor <a name="apparmor"></a>
 
 AppArmor is a Mandatory Access Control framework. When enabled, AppArmor confines programs according to a set of rules that specify what files a given program can access. This proactive approach helps protect the system against both known and unknown vulnerabilities.
 
-## LVM (Logical Volume Manager): 
+## LVM (Logical Volume Manager) <a name="LVM"></a>
 
 LVM, which stands for Logical Volume Management, is a technology that helps manage storage devices in a flexible way. It allows users to pool and abstract the physical layout of storage devices, providing advantages such as increased abstraction, flexibility, and control. 
 
@@ -150,7 +166,7 @@ LVM, which stands for Logical Volume Management, is a technology that helps mana
 
     Logical volumes are created within volume groups and function as partitions or filesystems. They provide much more flexibility compared to traditional partitions on a physical disk. Logical volumes are the main components that users and applications interact with. 
 
-## SSH (Secure Shell or Secure Socket Shell): 
+## SSH (Secure Shell or Secure Socket Shell) <a name="SSH"></a>
 
 SSH is a secured network protocol to access remote computers in a network. SSH encrypts the communication between the client and the server, making it difficult for anyone to intercept or read the data being transmitted. It uses strong encryption and authentication methods to ensure privacy and security. 
 
@@ -160,7 +176,7 @@ SSH uses a client-server architecture for secured communication over the network
 
 It uses a public-key cryptography technique to authenticate between client and server. In addition, the protocol uses strong symmetric encryption & hashing algorithms for the exchange of messages between client and server to ensure privacy and data integrity. 
 
-## UFW (Uncomplicated Firewall): 
+## UFW (Uncomplicated Firewall) <a name="UFW"></a>
 
 UFW (Uncomplicated Firewall) is a user-friendly front-end tool for managing firewall rules on Linux systems. It provides a simplified interface for configuring and managing firewall settings, making it easier for users to control incoming and outgoing network traffic. 
 
@@ -168,19 +184,12 @@ With UFW, you can define rules to allow or deny specific connections based on pr
 
 UFW simplifies the process of configuring firewall rules by using a straightforward command-line interface. It abstracts the complexities of configuring iptables (the underlying firewall infrastructure) and provides a more intuitive way to manage firewall settings. 
 
-## SUDO (Superuser do)
+## SUDO (Superuser do) <a name="sudo"></a>
 
 Sudo is a Linux command that allows programs to be executed as a super user (aka root user) or another user. 
 
-## Password policy
+## Password policy <a name="password"></a>
 A password policy defines the password strength rules that are used to determine whether a new password is valid.
-
-### You can specify the following standards and other rules for passwords:
-- Minimum and maximum length
-- Character restrictions
-- Frequency of password reuse
-- Disallowed user names or user IDs
-- Specify a minimum password age
 
 ### How do you implement the password policy?
 The password policy was implemented by installing Password Quality Checking Library and adding additional password quality requirements such as minimum length, inclusion of uppercase letters and digits, restrictions on repeating characters, and prevention of using the username in the password to `pam_pwquality` module in the `/etc/pam.d/common-password` file where it checks for password quality.
@@ -230,7 +239,7 @@ The main benefit of password complexity rules is that they enforce the use of un
 ### Disadvantages:
 With in increase of complexity requirements it becomes harder to remember the password potentially causing people to store their passwords using an insecure method such as writing it down or storing it on their phone or computer. Many organizations have found that as complexity requirements increase, users will have worse password hygiene. 
 
-## What is the sudoers file, & its purpose?
+## What is the sudoers file, & its purpose? <a name="sudoers_file"></a>
 The sudoers file is a configuration file in Unix-like operating systems that determines which users or groups are allowed to run specific commands with administrative privileges using the sudo command. It controls access to the system and provides a way to delegate limited root access to non-root users.
 
 The purpose of the sudoers file is to define a policy that specifies who can perform privileged operations and what commands they are allowed to execute. It helps enhance security by allowing system administrators to grant certain privileges to trusted users while limiting access to critical system functions.
@@ -264,7 +273,7 @@ sudo visudo
 > 
 > `trngo ALL=(ALL) NOPASSWD: /user/local/bin/monitoring.sh`: Allows user "trngo" to execute the command `/user/local/bin/monitoring.sh` without entering a password.
 
-## What is the monitoring.sh script?
+## What is the monitoring.sh script? <a name="monitoring.sh"></a>
 Go to where the monitoring script file is in
 ```
 cd /usr/local/bin
@@ -278,7 +287,7 @@ The monitoring.sh script is a bash script that collects various system informati
 
 In summary, the monitoring.sh script automates the process of collecting system information and notifying users about the current system status.
 
-## Wall command (write all)
+## Wall command (write all) <a name="wall"></a>
 The wall command is a Unix command-line utility that stands for "write all." It allows you to send a message to all logged-in users on a Unix-like system. The message you provide as an argument to the wall command will be displayed on the terminals of all currently logged-in users.
 
 The wall command is often used by system administrators to broadcast important messages, announcements, or notifications to all users on a system. It is particularly useful for conveying urgent information or system-wide notifications that require immediate attention from users.
@@ -326,7 +335,7 @@ wall "	#Architecture: $arc
 > 
 > `#Sudo: $cmds cmd`: Represents the number of sudo commands executed.
 
-## What is Cron & its purpose?
+## Cron <a name="cron"></a>
 Cron is a time-based job scheduler in Unix-like operating systems. It is a built-in utility that allows users to schedule and automate the execution of tasks or commands at specific intervals, dates, or times. The tasks scheduled with Cron are often referred to as "Cron jobs."
 
 The purpose of Cron is to enable users to automate repetitive or scheduled tasks, system maintenance, data backups, and various other activities. It provides a convenient way to execute commands or scripts without manual intervention. Cron is commonly used for:
