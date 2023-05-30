@@ -13,7 +13,7 @@
 10. [Password policy](#password)
 11. [What is the sudoers file, & its purpose?](#sudoers_file)
 12. [What is the monitoring.sh script?](#monitoring.sh)
-13. [Wall command (write all](#wall)
+13. [Wall command (write all)](#wall)
 14. [Cron](#cron)
 
 ## How does a virtual machine work and what is its purpose? <a name="virtual_machine"></a>
