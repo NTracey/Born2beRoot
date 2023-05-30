@@ -266,7 +266,7 @@ The main benefit of password complexity rules is that they enforce the use of un
 ### Disadvantages:
 With in increase of complexity requirements it becomes harder to remember the password potentially causing people to store their passwords using an insecure method such as writing it down or storing it on their phone or computer. Many organizations have found that as complexity requirements increase, users will have worse password hygiene. 
 
-What is the sudoers file, & its purpose?
+## What is the sudoers file, & its purpose?
 The sudoers file is a configuration file in Unix-like operating systems that determines which users or groups are allowed to run specific commands with administrative privileges using the sudo command. It controls access to the system and provides a way to delegate limited root access to non-root users.
 
 The purpose of the sudoers file is to define a policy that specifies who can perform privileged operations and what commands they are allowed to execute. It helps enhance security by allowing system administrators to grant certain privileges to trusted users while limiting access to critical system functions.
@@ -277,7 +277,6 @@ sudo visudo
 ```
 
 ::: {.callout-note}
-
 Defaults env_reset: Resets the environment to a default state when executing commands with sudo.
 Defaults mail_badpass: Sends an email notification to the user when they enter an incorrect password.
 Defaults secure_path="/usr/local/sbin:/usr/local/bin:/usr/bin:/sbin:/bin": Sets the secure path, which is the list of directories that sudo considers safe for executing commands.
