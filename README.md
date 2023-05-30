@@ -207,21 +207,19 @@ After adding the parameters, the line should look like this:
 password	requisite	pam_pwquality.so	retry=3 minlen=10 ucredit=-1 dcredit=-1 maxrepeat=3 reject_username difok=7 enforce_for_root
 ```
 
-::: {.callout-note}
-password: This indicates that the configuration applies to password authentication.
-requisite: Specifies that the module is required for password authentication to be successful.
-pam_pwquality.so: Refers to the pam_pwquality module responsible for checking password quality.
-The additional parameters are:
+> password: This indicates that the configuration applies to password authentication.
+> requisite: Specifies that the module is required for password authentication to be successful.
+> pam_pwquality.so: Refers to the pam_pwquality module responsible for checking password quality.
 
-retry=3: Specifies that the user will have three attempts to enter a valid password before failing.
-minlen=10: Sets the minimum password length to 10 characters.
-ucredit=-1: Requires at least one uppercase letter in the password.
-dcredit=-1: Requires at least one digit (number) in the password.
-maxrepeat=3: Limits the number of consecutive repeated characters in the password to three.
-reject_username: Prevents the use of the username as part of the password.
-difok=7: Specifies that at least seven characters in the new password should be different from the old password.
-enforce_for_root: Applies the password quality checks even for the root user.
-:::
+The additional parameters are:
+> retry=3: Specifies that the user will have three attempts to enter a valid password before failing.
+> minlen=10: Sets the minimum password length to 10 characters.
+> ucredit=-1: Requires at least one uppercase letter in the password.
+> dcredit=-1: Requires at least one digit (number) in the password.
+> maxrepeat=3: Limits the number of consecutive repeated characters in the password to three.
+> reject_username: Prevents the use of the username as part of the password.
+> difok=7: Specifies that at least seven characters in the new password should be different from the old password.
+> enforce_for_root: Applies the password quality checks even for the root user.
 
 By adding these parameters to the line, you are configuring the pam_pwquality module to enforce stricter password quality requirements, such as minimum length, inclusion of uppercase letters and digits, restrictions on repeating characters, and prevention of using the username in the password. These settings enhance the security of the system by promoting stronger passwords.
 
@@ -276,22 +274,20 @@ Open Sudoers file
 sudo visudo
 ```
 
-::: {.callout-note}
-Defaults env_reset: Resets the environment to a default state when executing commands with sudo.
-Defaults mail_badpass: Sends an email notification to the user when they enter an incorrect password.
-Defaults secure_path="/usr/local/sbin:/usr/local/bin:/usr/bin:/sbin:/bin": Sets the secure path, which is the list of directories that sudo considers safe for executing commands.
-Defaults badpass_message="Password is wrong, please try again!": Specifies a custom error message to be displayed when a user enters an incorrect password.
-Defaults passwd_tries=3: Sets the number of password attempts a user is allowed before the authentication fails.
-Defaults logfile="/var/log/sudo/sudo.log": Specifies the path to the sudo log file where sudo commands and related information are logged.
-Defaults log_input, log_output: Enables logging of user input and output when executing sudo commands.
-Defaults requiretty: Requires a TTY (terminal) to be present when executing sudo commands, which helps prevent remote execution of sudo commands.
+> `Defaults env_reset`: Resets the environment to a default state when executing commands with sudo.
+> `Defaults mail_badpass`: Sends an email notification to the user when they enter an incorrect password.
+> `Defaults secure_path="/usr/local/sbin:/usr/local/bin:/usr/bin:/sbin:/bin"`: Sets the secure path, which is the list of directories that sudo considers safe for executing commands.
+> `Defaults badpass_message="Password is wrong, please try again!"`: Specifies a custom error message to be displayed when a user enters an incorrect password.
+> `Defaults passwd_tries=3`: Sets the number of password attempts a user is allowed before the authentication fails.
+> `Defaults logfile="/var/log/sudo/sudo.log"`: Specifies the path to the sudo log file where sudo commands and related information are logged.
+> `Defaults log_input, log_output`: Enables logging of user input and output when executing sudo commands.
+> `Defaults requiretty`: Requires a TTY (terminal) to be present when executing sudo commands, which helps prevent remote execution of sudo commands.
 
-root ALL=(ALL :ALL) ALL: Grants the root user all privileges (on all hosts and terminals).
+> `root ALL=(ALL :ALL) ALL`: Grants the root user all privileges (on all hosts and terminals).
 
-trngo ALL=(ALL) ALL: Grants user "trngo" all privileges (on all hosts and terminals).
-%sudo ALL=(ALL :ALL) ALL: Grants all members of the "sudo" group all privileges (on all hosts and terminals).
-trngo ALL=(ALL) NOPASSWD: /user/local/bin/monitoring.sh: Allows user "trngo" to execute the command /user/local/bin/monitoring.sh without entering a password.
-:::
+> `trngo ALL=(ALL) ALL`: Grants user "trngo" all privileges (on all hosts and terminals).
+> `%sudo ALL=(ALL :ALL) ALL`: Grants all members of the "sudo" group all privileges (on all hosts and terminals).
+> `trngo ALL=(ALL) NOPASSWD: /user/local/bin/monitoring.sh`: Allows user "trngo" to execute the command `/user/local/bin/monitoring.sh` without entering a password.
 
 ## What is the monitoring.sh script?
 Go to where the monitoring script file is in
