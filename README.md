@@ -275,12 +275,19 @@ sudo visudo
 ```
 
 > `Defaults env_reset`: Resets the environment to a default state when executing commands with sudo.
+> 
 > `Defaults mail_badpass`: Sends an email notification to the user when they enter an incorrect password.
+> 
 > `Defaults secure_path="/usr/local/sbin:/usr/local/bin:/usr/bin:/sbin:/bin"`: Sets the secure path, which is the list of directories that sudo considers safe for executing commands.
+> 
 > `Defaults badpass_message="Password is wrong, please try again!"`: Specifies a custom error message to be displayed when a user enters an incorrect password.
+> 
 > `Defaults passwd_tries=3`: Sets the number of password attempts a user is allowed before the authentication fails.
+> 
 > `Defaults logfile="/var/log/sudo/sudo.log"`: Specifies the path to the sudo log file where sudo commands and related information are logged.
+> 
 > `Defaults log_input, log_output`: Enables logging of user input and output when executing sudo commands.
+> 
 > `Defaults requiretty`: Requires a TTY (terminal) to be present when executing sudo commands, which helps prevent remote execution of sudo commands.
 
 > `root ALL=(ALL :ALL) ALL`: Grants the root user all privileges (on all hosts and terminals).
