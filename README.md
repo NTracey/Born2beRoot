@@ -7,14 +7,14 @@
 4. [The difference between aptitude, and apt](#aptitude_apt)
 5. [AppArmor](#apparmor)
 6. [LVM (Logical Volume Manager)](#LVM)
-7. [SSH (Secure Shell or Secure Socket Shell](SSH)
-8. [UFW (Uncomplicated Firewall)](UFW)
-9. [SUDO (Superuser do)](sudo)
-10. [Password policy](password)
-11. [What is the sudoers file, & its purpose?](sudoers_file)
-12. [What is the monitoring.sh script?](monitoring.sh)
-13. [Wall command (write all](wall)
-14. [Cron](cron)
+7. [SSH (Secure Shell or Secure Socket Shell](#SSH)
+8. [UFW (Uncomplicated Firewall)](#UFW)
+9. [SUDO (Superuser do)](#sudo)
+10. [Password policy](#password)
+11. [What is the sudoers file, & its purpose?](#sudoers_file)
+12. [What is the monitoring.sh script?](#monitoring.sh)
+13. [Wall command (write all](#wall)
+14. [Cron](#cron)
 
 ## How does a virtual machine work and what is its purpose? <a name="virtual_machine"></a>
 
