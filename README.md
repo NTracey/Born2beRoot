@@ -6,7 +6,7 @@
 3. [My choice of operating system and why?](#debian)
 4. [The difference between aptitude, and apt](#aptitude_apt)
 5. [AppArmor](#apparmor)
-6. [LVM (Logical Volume Manager](#LVM)
+6. [LVM (Logical Volume Manager)](#LVM)
 7. [SSH (Secure Shell or Secure Socket Shell](SSH)
 8. [UFW (Uncomplicated Firewall)](UFW)
 9. [SUDO (Superuser do)](sudo)
