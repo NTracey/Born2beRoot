@@ -325,8 +325,9 @@ In summary, the monitoring.sh script automates the process of collecting system 
 The wall command is a Unix command-line utility that stands for "write all." It allows you to send a message to all logged-in users on a Unix-like system. The message you provide as an argument to the wall command will be displayed on the terminals of all currently logged-in users.
 The wall command is often used by system administrators to broadcast important messages, announcements, or notifications to all users on a system. It is particularly useful for conveying urgent information or system-wide notifications that require immediate attention from users.
 
-The wall command is included in the monitoring.sh script. Towards the end of the script, there is a line that uses the wall command to broadcast the system information message to all logged-in users. Here's the relevant part of the script:
+In this section, the wall command in monitoring.sh script is used to send the formatted system information message as a broadcast to all logged-in users. The message includes various system details such as architecture, CPU information, memory usage, disk usage, CPU load, last boot time, LVM usage, TCP connections, user login count, network information, and the number of sudo commands executed.
 
+When the script is executed, this line with the wall command will display the system information on the terminals of all currently logged-in users.
 ```
 wall "	#Architecture: $arc
           #CPU physical: $pcpu
@@ -341,10 +342,31 @@ wall "	#Architecture: $arc
           #Network: IP $ip ($mac)
           #Sudo: $cmds cmd"
 ```
+> The variables starting with `$` (e.g., `$arc`, `$pcpu`) will be replaced with the corresponding values obtained from executing various commands within the script when the message is broadcasted.
 
-In this section, the wall command is used to send the formatted system information message as a broadcast to all logged-in users. The message includes various system details such as architecture, CPU information, memory usage, disk usage, CPU load, last boot time, LVM usage, TCP connections, user login count, network information, and the number of sudo commands executed.
-
-When the script is executed, this line with the wall command will display the system information on the terminals of all currently logged-in users.
+> `#Architecture`: Represents the system's architecture.
+> 
+> `#CPU physical`: Indicates the number of physical CPUs in the system.
+> 
+> `#vCPU`: Represents the number of virtual CPUs.
+> 
+> `#Memory Usage`: Shows the used and total memory in megabytes (MB) and the percentage of memory usage.
+> 
+> `#Disk Usage`: Displays the used and total disk space in gigabytes (GB) and the percentage of disk usage.
+> 
+> `#CPU load`: Indicates the CPU load percentage.
+> 
+> `#Last boot`: Represents the date and time of the last system boot.
+> 
+> `#LVM use`: Indicates whether LVM (Logical Volume Manager) is being used on the system.
+> 
+> `#Connections TCP`: Displays the number of established TCP connections.
+> 
+> `#User log`: Indicates the number of users currently logged in.
+> 
+> `#Network: IP`: Shows the system's IP address and MAC address.
+> 
+> `#Sudo: $cmds cmd`: Represents the number of sudo commands executed.
 
 ## What is Cron & its purpose?
 Cron is a time-based job scheduler in Unix-like operating systems. It is a built-in utility that allows users to schedule and automate the execution of tasks or commands at specific intervals, dates, or times. The tasks scheduled with Cron are often referred to as "Cron jobs."
