@@ -207,19 +207,28 @@ After adding the parameters, the line should look like this:
 password	requisite	pam_pwquality.so	retry=3 minlen=10 ucredit=-1 dcredit=-1 maxrepeat=3 reject_username difok=7 enforce_for_root
 ```
 
-> password: This indicates that the configuration applies to password authentication.
-> requisite: Specifies that the module is required for password authentication to be successful.
-> pam_pwquality.so: Refers to the pam_pwquality module responsible for checking password quality.
+> `password`: This indicates that the configuration applies to password authentication.
+> 
+> `requisite:` Specifies that the module is required for password authentication to be successful.
+> 
+> `pam_pwquality.so`: Refers to the pam_pwquality module responsible for checking password quality.
 
 The additional parameters are:
-> retry=3: Specifies that the user will have three attempts to enter a valid password before failing.
-> minlen=10: Sets the minimum password length to 10 characters.
-> ucredit=-1: Requires at least one uppercase letter in the password.
-> dcredit=-1: Requires at least one digit (number) in the password.
-> maxrepeat=3: Limits the number of consecutive repeated characters in the password to three.
-> reject_username: Prevents the use of the username as part of the password.
-> difok=7: Specifies that at least seven characters in the new password should be different from the old password.
-> enforce_for_root: Applies the password quality checks even for the root user.
+> `retry=3`: Specifies that the user will have three attempts to enter a valid password before failing.
+> 
+> `minlen=10`: Sets the minimum password length to 10 characters.
+> 
+> `ucredit=-1`: Requires at least one uppercase letter in the password.
+> 
+> `dcredit=-1`: Requires at least one digit (number) in the password.
+> 
+> `maxrepeat=3`: Limits the number of consecutive repeated characters in the password to three.
+> 
+> `reject_username`: Prevents the use of the username as part of the password.
+> 
+> `difok=7`: Specifies that at least seven characters in the new password should be different from the old password.
+> 
+> `enforce_for_root`: Applies the password quality checks even for the root user.
 
 By adding these parameters to the line, you are configuring the pam_pwquality module to enforce stricter password quality requirements, such as minimum length, inclusion of uppercase letters and digits, restrictions on repeating characters, and prevention of using the username in the password. These settings enhance the security of the system by promoting stronger passwords.
 
@@ -243,11 +252,11 @@ PASS_MIN_DAYS 2
 PASS_WARN_AGE 7
 ```
 
-> PASS_MAX_DAYS 30: This parameter sets the maximum number of days a password can be used before it expires. In this case, the value is set to 30 days. After 30 days, users will be required to change their passwords.
+> `PASS_MAX_DAYS 30`: This parameter sets the maximum number of days a password can be used before it expires. In this case, the value is set to 30 days. After 30 days, users will be required to change their passwords.
 
-> PASS_MIN_DAYS 2: This parameter sets the minimum number of days a user must wait before changing their password again. With a value of 2, users must wait at least two days before changing their password. This setting helps prevent users from frequently changing their passwords to bypass password history restrictions.
+> `PASS_MIN_DAYS 2`: This parameter sets the minimum number of days a user must wait before changing their password again. With a value of 2, users must wait at least two days before changing their password. This setting helps prevent users from frequently changing their passwords to bypass password history restrictions.
 
-> PASS_WARN_AGE 7: This parameter sets the number of days before a password expires that users will start receiving warning messages. In this case, users will receive a warning message seven days before their password expires, reminding them to change it.
+> `PASS_WARN_AGE 7`: This parameter sets the number of days before a password expires that users will start receiving warning messages. In this case, users will receive a warning message seven days before their password expires, reminding them to change it.
 
 By adjusting these password policy settings, you are defining the expiration period, the minimum waiting period before changing passwords, and the warning period for users. These settings contribute to enforcing a stronger security posture by ensuring that passwords are regularly updated and users are notified in advance of password expiration.
 
@@ -293,7 +302,9 @@ sudo visudo
 > `root ALL=(ALL :ALL) ALL`: Grants the root user all privileges (on all hosts and terminals).
 
 > `trngo ALL=(ALL) ALL`: Grants user "trngo" all privileges (on all hosts and terminals).
+> 
 > `%sudo ALL=(ALL :ALL) ALL`: Grants all members of the "sudo" group all privileges (on all hosts and terminals).
+> 
 > `trngo ALL=(ALL) NOPASSWD: /user/local/bin/monitoring.sh`: Allows user "trngo" to execute the command `/user/local/bin/monitoring.sh` without entering a password.
 
 ## What is the monitoring.sh script?
